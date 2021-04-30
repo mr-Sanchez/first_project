@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+<link href="/static/css/style.css" rel="stylesheet">
+{% endblock%}
+
+{% block content %}
+    <div style="align-items: center; background-color: white; padding: 20px;">
+        <a class="logout-link" href="{{ url_for('logout') }}">Выйти</a>
+        <h3>Личный кабинет покупателя</h3>
+        <p>Имя пользователя: {{ user_info.user_name }}</p>
+        <hr>
+        <p style="text-align: center;"><span style="font-size: 22px;">Мои покупки</span></p>
+        {% if purchases %}
+            {% for purchase in purchases %}
+                <div style="background-color: antiquewhite; padding: 10px;">
+                    <p>Дата и время покупки: {{ purchase.purchase_date }}</p>
+                    <p>Стоимость покупки: {{ purchase.purchase_cost }} руб.</p>
+                </div>
+                <div class="purchase-open">Открыть</div>
+                <div class="purchase-detail">
+                    <div class="row">
+                    {% for item in purchase.sizes %}
+                        {% set clothes_item = item.size.clothes %}
+                        <div class="purchase-item col-sm">
+                            <p><span class="purchase-item-title">Наименование: </span><a style="color: black;" href="/clothes/item_{{clothes_item.id}}">{{ clothes_item.clothes_name }}</a></p>
+                            <p><span class="purchase-item-title">Размер:</span> {{ item.size.size }}</p>
+                            <p><span class="purchase-item-title">Стоимость: </span>{{ clothes_item.clothes_price }}</p>
+                            <p><span class="purchase-item-title">Количество:</span> {{ item.sold_clothes_quantity }}</p>
+                        </div>
+                        <!-- либо так (ибо два бэкрефа в models)
+                            {{ item.sold_clothes_size.clothes.clothes_name }} -->
+                    {% endfor %}
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <span>Здесь будут отображаться ваши покупки</span>
+        {% endif %}
+    </div>
+    <script src="/static/js/profile.js"></script>
+{% endblock %}

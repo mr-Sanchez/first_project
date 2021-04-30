@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="row">
+        {% for item in items %}
+            <div class="col-md-3 col-sm-6" style="padding-bottom: 30px;">
+                <div class="card" style="width: 18rem;">
+                    <a href="{{ url_for('clothes.item_detail', item_id=item.id) }}">
+                    {% if item.images %}
+                    {% set preview_image = item.images[0].clothes_image_path %}
+                    {% else %}
+                    {% set preview_image = 'https://upload.wikimedia.org/wikipedia/commons/f/fc/No_picture_available.png' %}
+                    {% endif %}
+                    <img src="{{ preview_image }}" class="card-img-top" alt="...">
+                    </a>
+                    <div class="card-body">
+                    <h5 class="card-title">{{ item.clothes_name }}</h5>
+                    <!--<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                    <p class="card-text">{{ item.clothes_price }} Руб</p>
+                    <!--<a href="#" class="btn btn-primary">Buy</a>-->
+                    </div>
+                </div>
+            </div> 
+        {% endfor %}
+    </div>
+{% endblock %}

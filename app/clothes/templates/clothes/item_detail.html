@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+<link href="/clothes/static/clothes/css/style.css" rel="stylesheet">
+{% endblock%}
+
+{% block content %}
+    <div class="sticky-content">
+        <div class="sandbox">
+            <!--<div class="content">-->
+                {% if item.images %}
+                    {% for img in item.images %}
+                        <img class="itemImage" src="{{img.clothes_image_path}}">
+                    {% endfor %}
+                {% endif %}
+                <p class="itemInfo">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nulla libero, eleifend in bibendum quis, vestibulum vitae libero. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed eget leo ut tortor interdum cursus quis sit amet nibh. Ut aliquet odio ut velit auctor, at suscipit magna aliquam. Sed euismod metus et laoreet tempus. Curabitur ornare ante quis nunc commodo, egestas pretium neque faucibus. Ut consequat nisl vel tristique facilisis. Curabitur orci mi, consectetur ut commodo vel, mollis nec nulla. Aenean non eros ac neque condimentum condimentum.
+
+                    Ut porta risus a purus consectetur sollicitudin. Sed eu neque vitae enim elementum pellentesque at nec lorem. Fusce vitae nisl lectus. Donec convallis risus sapien, nec dapibus lorem tristique id. Quisque et velit in elit volutpat scelerisque. Proin interdum odio nibh, at accumsan sapien luctus vitae. In sed mi id lacus consectetur ullamcorper sed quis elit. Pellentesque congue in sem eget sodales. Integer pharetra volutpat urna, in varius sem placerat in. Aliquam vestibulum dolor non posuere cursus. Nam eget quam sit amet mi pellentesque porttitor. Nullam sollicitudin ultricies ipsum quis aliquet. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc malesuada sapien nulla, quis iaculis leo pellentesque ac.
+                </p>
+                {% if item.images %}
+                    <p class="itemInfo" style="align-items: center;">
+                        <img class="itemImageSecondary" src="{{item.images[0].clothes_image_path}}">
+                    </p>
+                {% endif %}
+    
+                    <div class="itemInfo">
+                        <h2 id="commentTitle">Отзывы</h2><br>
+                        <div>
+                            <label for="InputAuthor" class="form-label">Имя</label>
+                            <input type="text" class="form-control" id="InputAuthor" name="InputAuthor"><br>
+                            <label for="InputText" class="form-label">Текст отзыва</label>
+                            <textarea class="form-control" aria-label="With textarea" name="InputText" id="InputText"></textarea><br>
+                            <button type="button" id="addComment" class="btn btn-dark">Оставить отзыв</button>
+                        </div>
+                        {% if comments %}
+                            <hr><br>
+                            <div class="Comments">
+                            {% for comment in comments %}
+                                <p style="margin-bottom: 30px;">
+                                    <span style="text-decoration: underline;">{{ comment.comment_author }}</span><span style="float: right;">{{ comment.comment_publish_date }}</span><br><br>
+                                    <span>{{ comment.comment_text }}</span><hr>
+                                </p>
+                            {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+            <!--</div>-->
+        </div>
+        <div class="sticky-sidebar">
+            <h5 id="itemName">{{ item.clothes_name }}</h5>
+            <br>
+            <h5 id='item_price'>{{ item.clothes_price }} Руб</h5><br>
+            {% if item.sizes|length != 0 %}
+                <select class="form-select" aria-label="Default select example" style="width: 250px; border: 1p solid black;">
+                    <option>Выбрать размер</option>
+                    {% for size in item.sizes %}
+                        {% if size.count != 0 %}
+                            <option value="{{ size.id }}">{{size.size}}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+                <input id="item_id" type="hidden" value="{{ item.id }}">
+            <br>
+            <button type="button" class="btn btn-dark add-item" style="width: 250px;">Добавить в корзину</button>
+            {% else %}
+                <h5 style="border: 1px solid black; border-radius: 5px; text-align: center; padding: 5px;">Товар распродан</h5>
+            {% endif %}
+        </div>
+    </div>
+    <!--<div class="cartNotification cartNotification--visible">sample message from cartNotification</div>-->
+    <script src="/clothes/static/clothes/js/add_item.js"></script>
+{% endblock %}

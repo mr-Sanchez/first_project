@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+<link href="/clothes/static/clothes/css/style.css" rel="stylesheet">
+{% endblock%}
+
+{% block content %}
+    <div class="row">
+        {% for category in categories %}
+            <div class="col-md-3 col-sm-3">
+                <a class="categories-link" href="{{ url_for('clothes.show_items_by_category', itemsfor=category.clothes_for, category=category.category_path) }}">{{ category.category_name }}</a>
+                
+                <!--
+                <img src="/clothes/static/clothes/clothes_1.png" class="card-img-top" alt="...">  -->
+                <!--
+                <div class="card" style="width: 18rem;">
+                    <img src="/clothes/static/clothes/clothes_1.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                    <h5 class="card-title">{{ category.category_name }}</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Buy</a>
+                    </div>
+                </div>
+                -->  
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

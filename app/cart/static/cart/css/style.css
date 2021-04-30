@@ -1,0 +1,122 @@
+.products-container {
+    max-width: 850px;
+    justify-content: space-around;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.product-header {
+    width: 100%;
+    max-width: 850px;
+    display: flex;
+    justify-content: flex-start;
+    border-bottom: 4px solid lightgray;
+    margin: 0 auto;
+}
+
+.product-title {
+    width: 40%;
+}
+
+.product-size {
+    width: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-price {
+    width: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-quantity {
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-total {
+    width: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-description {
+    width: 40%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.product {
+    display: flex;
+    border-bottom: 1px solid lightgray;
+}
+
+.cartTotalContainer {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    padding: 10px 0;
+}
+
+.cartTotalTitle {
+    padding-right: 5px;
+    font-weight: bold;
+}
+
+.cartEmptyContainer {
+    color: rgb(75, 75, 75);
+    font-size: 22px;
+    padding: 15px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.cart-count-ntf {
+    margin-bottom: 5px;
+    padding: 5px;
+    border-bottom: 2px solid red;
+    border-right: 2px solid red;
+    border-left: 2px solid red;
+}
+
+.item-ntf {
+    border-top: 2px solid red;
+    border-right: 2px solid red;
+    border-left: 2px solid red;
+}
+
+.order-discount {
+    text-decoration: underline;
+    cursor: pointer;
+    float: right;
+    font-weight: bold;
+}
+
+.OrderSubmitButton {
+    width: 100%;
+}
+
+.OrderSubmitButton:disabled {
+    border: none;
+    color:black;
+    background-color: rgb(219, 219, 219);
+}
+
+.enteredCoupon {
+    background-color: antiquewhite;
+    padding: 10px;
+    margin-bottom: 30px;
+}
+
+.codeError {
+    border: 1px solid rgb(255, 0, 0);
+}
+

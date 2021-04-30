@@ -1,0 +1,107 @@
+.categories-link {
+    padding: 20px;
+    padding-top: 10px; 
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+}
+
+.categories-link:hover {
+    background-color: #cbffeb;
+    text-decoration: underline;
+    color: black;
+}
+
+.sticky-content {
+    width: 95%;
+    margin: 0 auto;
+}
+
+.sticky-content::after {
+    display: table;
+    content: "";
+    clear: both;
+}
+
+.sticky-content .sandbox {
+    width: 70%;
+    margin: 0 0 40px;
+    float: left;
+}
+
+.itemInfo {
+    background-color: white;
+    padding: 60px;
+}
+
+.itemImage {
+    display: inline-block;
+    width: calc(50% - 3px);
+    margin-top: 5px;
+    margin-bottom: 15px;
+};
+
+.itemImageSecondary {
+    width: 100%;
+}
+
+.sticky-sidebar {
+    padding: 10px 40px 60px;
+    box-sizing: border-box;
+    position: fixed;
+    right: 5%;
+    width: 25%;
+    float: right;
+}
+
+.cartNotification {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    margin: auto;
+    width: 400px;
+    padding: 20px;
+    padding-top: 60px;
+    background-color: white;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.2s, visibility 0.2s;
+}
+
+.ntInfo {
+    font-size: 14px;
+}
+
+.ntSize {
+    font-size: 12px;
+}
+
+.ntImage {
+    width: 120px;
+}
+
+.ntContent {	
+	display: inline-block;
+}
+
+.ntText {
+    padding-left: 10px;
+}
+
+.ntCart {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.cartNotification--visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+.cartNotification--error {
+    background-color: #f8c4c4;
+}

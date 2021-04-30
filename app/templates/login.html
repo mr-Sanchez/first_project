@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<br>
+<div class="offset-md-4">
+    <form action="" method="POST" onsubmit="return checkForm()">
+        <div class="mb-3 col-md-6">
+        <label for="exampleInputEmail1" class="form-label">Адрес электронной почты</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="inputEmail">
+        {% for category, message in get_flashed_messages(with_categories=True) %}
+            {% if category == 'email_errors' %}
+                <span style="color: brown;">{{ message }}</span>
+            {% endif %}
+        {% endfor %}
+        </div>
+        <div class="mb-3 col-md-6">
+        <label for="exampleInputPassword1" class="form-label">Пароль</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" name="inputPassword">
+        {% for category, message in get_flashed_messages(with_categories=True) %}
+            {% if category == 'password_errors' %}
+                <span style="color: brown;">{{ message }}</span>
+            {% endif %}
+        {% endfor %}
+        </div>
+        <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1" name="rememberMe">
+        <label class="form-check-label" for="exampleCheck1">Запомнить меня</label>
+        </div>
+        <button type="submit" class="btn btn-dark" id="sbm">Войти</button>
+    </form>
+    <br>Еще нет учетной записи?
+    <br><a href="{{ url_for('register') }}">Регистрация</a>
+</div>
+<script src="/static/js/login.js"></script>
+{% endblock %}

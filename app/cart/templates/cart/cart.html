@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+<link href="/cart/static/cart/css/style.css" rel="stylesheet">
+<link href="/clothes/static/clothes/css/style.css" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<input class="cart-ntf" type="hidden" value="{{data}}">
+<div class="products-container">
+    <div class="product-header">
+        <h5 class="product-title">Наименование</h5>
+        <h5 class="product-size">Размер</h5>
+        <h5 class="product-price">Цена</h5>
+        <h5 class="product-quantity">Количество</h5>
+        <h5 class="product-total">Всего</h5>
+    </div>
+    <div class="products"></div>
+</div>
+<script src="/clothes/static/clothes/js/add_item.js"></script>
+<script>
+    displayCart();
+</script>
+{% endblock %}

@@ -1,0 +1,42 @@
+.logout-link {
+    float: right; 
+    color:black; 
+    text-decoration: none; 
+    border: 2px solid black; 
+    padding: 5px;
+}
+
+.logout-link:hover {
+    background-color: black;
+    color: white;
+}
+
+.purchase-open {
+    min-height: 40px;
+    text-align: center;
+    background-color: bisque;
+    padding: 5px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.purchase-open:hover {
+    background-color: rgb(255, 245, 232);
+}
+
+.purchase-detail {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    margin-bottom: 20px;
+}
+
+.purchase-item {
+    margin: 10px;
+    padding: 10px;
+    background-color: bisque;
+}
+
+.purchase-item-title {
+    color: rgb(114, 114, 114)
+}
