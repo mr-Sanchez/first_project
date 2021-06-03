@@ -1,2 +1,2 @@
-# first_project
+# The first Flask project
 Clothing store
